@@ -2,7 +2,7 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import sequelize, { testDbConnection } from "./config/db";
 import categoryRoutes from "./routes/categoryRoutes";
-
+import productRoutes from "./routes/productRoutes";
 dotenv.config();
 
 const app: Express = express();
@@ -13,6 +13,12 @@ app.use(express.json());
 
 // Use the category routes
 app.use("/categories", categoryRoutes);
+
+app.use("/products", productRoutes)
+
+// Error handling middleware
+
+
 
 // Test database connection
 testDbConnection();
