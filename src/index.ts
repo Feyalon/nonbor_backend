@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import sequelize, { testDbConnection } from "./config/db";
 import categoryRoutes from "./routes/categoryRoutes";
 import productRoutes from "./routes/productRoutes";
+import tagRoutes from "./routes/tagRoutes";
+import customerRoutes from "./routes/customerRoutes";
 dotenv.config();
 
 const app: Express = express();
@@ -15,6 +17,10 @@ app.use(express.json());
 app.use("/categories", categoryRoutes);
 
 app.use("/products", productRoutes)
+
+app.use("/tags", tagRoutes);
+
+app.use("/customers", customerRoutes);
 
 // Error handling middleware
 
